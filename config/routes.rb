@@ -36,6 +36,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'photos#index'
+
   #Ensure you have defined root_url to *something* in your config/routes.rb. For example:
   #root to: "trips#index"
 
