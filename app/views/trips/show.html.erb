@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h3>Trip #<%= @trip.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @trip.user_id %></dd>
+
+      <dt>Image</dt>
+      <dd><%= @trip.image %></dd>
+
+      <dt>Minimum number of participants</dt>
+      <dd><%= @trip.minimum_number_of_participants %></dd>
+
+      <dt>Description</dt>
+      <dd><%= @trip.description %></dd>
+
+      <dt>Estimated cost</dt>
+      <dd><%= @trip.estimated_cost %></dd>
+
+      <dt>Date</dt>
+      <dd><%= @trip.date %></dd>
+
+      <dt>Location</dt>
+      <dd><%= @trip.location %></dd>
+
+      <dt>Title</dt>
+      <dd><%= @trip.title %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/trips" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/trips/<%= @trip.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_trip/<%= @trip.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

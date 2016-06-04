@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Participant #<%= @participant.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @participant.user_id %></dd>
+
+      <dt>Trip</dt>
+      <dd><%= @participant.trip_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/participants" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/participants/<%= @participant.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_participant/<%= @participant.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
