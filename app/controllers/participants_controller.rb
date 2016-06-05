@@ -12,6 +12,13 @@ class ParticipantsController < ApplicationController
   end
 
   def create
+    @event = Event.new
+    @event.title = params[:title]
+    @event.held_on = Chronic.parse(params[:held_on])
+    @event.save
+  end
+
+  def create
     @participant = Participant.new
     @participant.user_id = params[:user_id]
     @participant.trip_id = params[:trip_id]

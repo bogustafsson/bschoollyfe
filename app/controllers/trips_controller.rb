@@ -12,6 +12,13 @@ class TripsController < ApplicationController
   end
 
   def create
+    @event = Event.new
+    @event.title = params[:title]
+    @event.held_on = Chronic.parse(params[:held_on])
+    @event.save
+  end
+
+  def create
     @trip = Trip.new
     @trip.user_id = params[:user_id]
     @trip.image = params[:image]
@@ -21,6 +28,7 @@ class TripsController < ApplicationController
     @trip.date = params[:date]
     @trip.location = params[:location]
     @trip.title = params[:title]
+    @trip.user_id = params
 
     if @trip.save
       redirect_to "/trips", :notice => "Trip created successfully."

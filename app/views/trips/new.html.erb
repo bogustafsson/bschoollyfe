@@ -18,31 +18,40 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @trip.title %>">
+      </div>
+
       <!-- Label and input for user_id -->
       <div class="form-group">
-        <label for="user_id" class="control-label">
+        <label for="user_id" class="control-label" value="user.image">
           User
         </label>
 
         <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @trip.user_id %>">
       </div>
 
-      <!-- Label and input for image -->
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @trip.location %>">
+      </div>
+
+      <!-- Label and input for Image -->
       <div class="form-group">
         <label for="image" class="control-label">
           Image
         </label>
 
-        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @trip.image %>">
-      </div>
-
-      <!-- Label and input for minimum_number_of_participants -->
-      <div class="form-group">
-        <label for="minimum_number_of_participants" class="control-label">
-          Minimum number of participants
-        </label>
-
-        <input type="text" id="minimum_number_of_participants" name="minimum_number_of_participants" placeholder="Minimum number of participants" class="form-control" value="<%= @trip.minimum_number_of_participants %>">
+        <input type="text" id="image" name="image" placeholder="Image URL" class="form-control" value="<%= @trip.image %>">
       </div>
 
       <!-- Label and input for description -->
@@ -64,30 +73,23 @@
       </div>
 
       <!-- Label and input for date -->
-      <div class="form-group">
+      <div class='input-group date' id='datepicker1'>
         <label for="date" class="control-label">
           Date
         </label>
 
-        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @trip.date %>">
+        <input type="text" class="form-control" id="date" name="date" placeholder="Date" value="<%= @trip.date %>">
+        <span class="input-group-addon">
+    <span class="glyphicon glyphicon-calendar"></span>
       </div>
 
-      <!-- Label and input for location -->
+      <!-- Label and input for minimum_number_of_participants -->
       <div class="form-group">
-        <label for="location" class="control-label">
-          Location
+        <label for="minimum_number_of_participants" class="control-label">
+          Minimum number of participants
         </label>
 
-        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @trip.location %>">
-      </div>
-
-      <!-- Label and input for title -->
-      <div class="form-group">
-        <label for="title" class="control-label">
-          Title
-        </label>
-
-        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @trip.title %>">
+        <input type="text" id="minimum_number_of_participants" name="minimum_number_of_participants" placeholder="Minimum number of participants" class="form-control" value="<%= @trip.minimum_number_of_participants %>">
       </div>
 
       <button class="btn btn-success">
