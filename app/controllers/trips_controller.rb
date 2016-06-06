@@ -5,17 +5,11 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @user = User.new
   end
 
   def new
     @trip = Trip.new
-  end
-
-  def create
-    @event = Event.new
-    @event.title = params[:title]
-    @event.held_on = Chronic.parse(params[:held_on])
-    @event.save
   end
 
   def create
@@ -25,10 +19,10 @@ class TripsController < ApplicationController
     @trip.minimum_number_of_participants = params[:minimum_number_of_participants]
     @trip.description = params[:description]
     @trip.estimated_cost = params[:estimated_cost]
-    @trip.date = params[:date]
+    @trip.date = Chronic.parse(params[:date])
     @trip.location = params[:location]
     @trip.title = params[:title]
-    @trip.user_id = params
+    @trip.user_id = params[:user_id]
 
     if @trip.save
       redirect_to "/trips", :notice => "Trip created successfully."
@@ -39,6 +33,7 @@ class TripsController < ApplicationController
 
   def edit
     @trip = Trip.find(params[:id])
+    @trip.date = Chronic.parse(params[:date])
   end
 
   def update
@@ -58,6 +53,11 @@ class TripsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def confirmed_participants
+    @user.first_name.count
+
   end
 
   def destroy

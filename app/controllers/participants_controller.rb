@@ -5,6 +5,7 @@ class ParticipantsController < ApplicationController
 
   def show
     @participant = Participant.find(params[:id])
+    @trip = Trip.new
   end
 
   def new
@@ -12,10 +13,10 @@ class ParticipantsController < ApplicationController
   end
 
   def create
-    @event = Event.new
-    @event.title = params[:title]
-    @event.held_on = Chronic.parse(params[:held_on])
-    @event.save
+    @trip = Trip.new
+    @trip.title = params[:title]
+    @trip.date = Chronic.parse(params[:date])
+    @trip.save
   end
 
   def create

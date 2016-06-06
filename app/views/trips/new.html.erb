@@ -21,19 +21,17 @@
       <!-- Label and input for title -->
       <div class="form-group">
         <label for="title" class="control-label">
+          User
+        </label>
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%=current_user.first_name %>">
+      </div>
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
           Title
         </label>
 
         <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @trip.title %>">
-      </div>
-
-      <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label" value="user.image">
-          User
-        </label>
-
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @trip.user_id %>">
       </div>
 
       <!-- Label and input for location -->
@@ -73,15 +71,15 @@
       </div>
 
       <!-- Label and input for date -->
-      <div class='input-group date' id='datepicker1'>
+      <div class='input-group date' id='datetimepicker1'>
         <label for="date" class="control-label">
           Date
         </label>
-
-        <input type="text" class="form-control" id="date" name="date" placeholder="Date" value="<%= @trip.date %>">
-        <span class="input-group-addon">
+  <input type='text' class="form-control" name="held_on" id="held_on">
+  <span class="input-group-addon">
     <span class="glyphicon glyphicon-calendar"></span>
-      </div>
+  </span>
+</div>
 
       <!-- Label and input for minimum_number_of_participants -->
       <div class="form-group">
@@ -100,3 +98,8 @@
     </form>
   </div>
 </div>
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker1').datetimepicker();
+  });
+</script>
