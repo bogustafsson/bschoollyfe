@@ -55,6 +55,19 @@ class TripsController < ApplicationController
     end
   end
 
+  def create_participant
+    @trip = Trip.find(params[:id])
+    @participant = Participant.new
+    @participant.user_id = current_user.id
+    @participant.trip_id = params[:id]
+
+      if @participant.save
+        redirect_to "/participants", :notice => "Participant created successfully."
+      else
+        render 'new'
+      end
+    end
+
   def confirmed_participants
     @user.first_name.count
 

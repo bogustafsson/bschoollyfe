@@ -13,13 +13,6 @@ class ParticipantsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new
-    @trip.title = params[:title]
-    @trip.date = Chronic.parse(params[:date])
-    @trip.save
-  end
-
-  def create
     @participant = Participant.new
     @participant.user_id = params[:user_id]
     @participant.trip_id = params[:trip_id]

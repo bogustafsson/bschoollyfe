@@ -17,7 +17,7 @@
       <% @participants.each do |participant| %>
       <tr>
         <td><%= participant.user_id %></td>
-        <td><%= participant.trip_id %></td>
+        <td><%= participant.trip.title %></td>
         <td>
           <a href="/participants/<%= participant.id %>" class="btn btn-primary">Show</a>
           <a href="/participants/<%= participant.id %>/edit" class="btn btn-warning">Edit</a>
