@@ -29,7 +29,7 @@
 
       <!-- Label and input for user_id -->
       <div class="form-group">
-        <label for="user_id" class="control-label">
+        <label for="user_id" class="control-label" value="<%= @trip.user_id %>">
           User
         </label>
 
@@ -38,7 +38,7 @@
 
       <!-- Label and input for location -->
       <div class="form-group">
-        <label for="location" class="control-label">
+        <label for="location" class="control-label" value="<%= @trip.location %>">
           Location
         </label>
 
@@ -47,7 +47,7 @@
 
       <!-- Label and input for image -->
       <div class="form-group">
-        <label for="image" class="control-label">
+        <label for="image" class="control-label" value="<%= @trip.image %>">
           Image
         </label>
 
@@ -56,7 +56,7 @@
 
       <!-- Label and input for description -->
       <div class="form-group">
-        <label for="description" class="control-label">
+        <label for="description" class="control-label" value="<%= @trip.description %>">
           Description
         </label>
 
@@ -65,7 +65,7 @@
 
       <!-- Label and input for estimated_cost -->
       <div class="form-group">
-        <label for="estimated_cost" class="control-label">
+        <label for="estimated_cost" class="control-label" value="<%= @trip.estimated_cost %>">
           Estimated cost
         </label>
 
@@ -74,18 +74,18 @@
 
       <!-- Label and input for date -->
       <div class='input-group date' id='datetimepicker1'>
-        <label for="date" class="control-label">
+        <label for="date" class="control-label" value="<%= @trip.date %>">
           Date
         </label>
-        <input type='text' class="form-control" name="held_on" id="held_on" value="<%= @trip.date %>">
-        <span class="input-group-addon">
-          <span class="glyphicon glyphicon-calendar"></span>
-        </span>
-      </div>
+  <input type='text' class="form-control" name="date" id="date" value="<%= @trip.date %>">
+  <span class="input-group-addon">
+    <span class="glyphicon glyphicon-calendar"></span>
+  </span>
+</div>
 
       <!-- Label and input for minimum_number_of_participants -->
       <div class="form-group">
-        <label for="minimum_number_of_participants" class="control-label">
+        <label for="minimum_number_of_participants" class="control-label" value="<%= @trip.minimum_number_of_participants %>">
           Minimum number of participants
         </label>
 

@@ -5,11 +5,12 @@
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
+      <dt>Image</dt>
+      <dd><img src="<%= @participant.user.image %>"></dd>
       <dt>User</dt>
-      <dd><%= @participant.user_id %></dd>
-
+      <dd><%= @participant.user.first_name %></dd>
       <dt>Trip</dt>
-      <dd><%= @participant.trip_id %></dd>
+      <dd><%= @participant.trip.title %></dd>
 
     </dl>
 

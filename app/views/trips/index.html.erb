@@ -10,6 +10,8 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
+        <th>Host</th>
+        <th></th>
         <th>Title</th>
         <th>Location</th>
         <th>Image</th>
@@ -25,6 +27,8 @@
 
       <% @trips.each do |trip| %>
       <tr>
+        <td><%= trip.user.first_name %></td>
+        <td><img width=60px src="<%= trip.user.image %>"</td>
         <td><%= trip.title %></td>
         <td><%= trip.location %></td>
         <td><img src="<%= trip.image %>"></td>

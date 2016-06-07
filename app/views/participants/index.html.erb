@@ -9,6 +9,7 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
+        <th>Image</th>
         <th>User</th>
         <th>Trip</th>
         <th>Actions</th>
@@ -16,7 +17,8 @@
 
       <% @participants.each do |participant| %>
       <tr>
-        <td><%= participant.user_id %></td>
+        <td><img width=100px src="<%= participant.user.image %>"></td>
+        <td><%= participant.user.first_name %></td>
         <td><%= participant.trip.title %></td>
         <td>
           <a href="/participants/<%= participant.id %>" class="btn btn-primary">Show</a>

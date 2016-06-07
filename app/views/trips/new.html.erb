@@ -21,9 +21,9 @@
       <!-- Label and input for title -->
       <div class="form-group">
         <label for="title" class="control-label">
-          User
+          Host
         </label>
-        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%=current_user.id %>">
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @trip.current_user.first_name %>">
       </div>
       <!-- Label and input for title -->
       <div class="form-group">
@@ -75,7 +75,7 @@
         <label for="date" class="control-label">
           Date
         </label>
-  <input type='text' class="form-control" name="held_on" id="held_on">
+  <input type='text' class="form-control" name="date" id="date" value="<%= @trip.date %>">
   <span class="input-group-addon">
     <span class="glyphicon glyphicon-calendar"></span>
   </span>

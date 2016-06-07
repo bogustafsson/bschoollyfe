@@ -13,8 +13,9 @@ class ParticipantsController < ApplicationController
   end
 
   def create
+    @trip = Trip.find(params[:id])
     @participant = Participant.new
-    @participant.user_id = params[:user_id]
+    @participant.user_id = current_user.id
     @participant.trip_id = params[:trip_id]
 
     if @participant.save
