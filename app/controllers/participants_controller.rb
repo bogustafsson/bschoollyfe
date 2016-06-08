@@ -13,9 +13,8 @@ class ParticipantsController < ApplicationController
   end
 
   def create
-    @trip = Trip.find(params[:id])
     @participant = Participant.new
-    @participant.user_id = current_user.id
+    @participant.user_id = params[:user_id]
     @participant.trip_id = params[:trip_id]
 
     if @participant.save
@@ -34,6 +33,7 @@ class ParticipantsController < ApplicationController
 
     @participant.user_id = params[:user_id]
     @participant.trip_id = params[:trip_id]
+    @participant.title = params[:title]
 
     if @participant.save
       redirect_to "/participants", :notice => "Participant updated successfully."
