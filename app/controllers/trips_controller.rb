@@ -33,7 +33,6 @@ class TripsController < ApplicationController
 
   def edit
     @trip = Trip.find(params[:id])
-    @trip.date = Chronic.parse(params[:date])
   end
 
   def update
@@ -60,7 +59,6 @@ class TripsController < ApplicationController
     @participant = Participant.new
     @participant.user_id = current_user.id
     @participant.trip_id = params[:id]
-    @trip.title = params[:title]
 
       if @participant.save
         redirect_to "/participants", :notice => "Participant created successfully."
