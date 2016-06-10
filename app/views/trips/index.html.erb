@@ -28,10 +28,10 @@
       <% @trips.each do |trip| %>
       <tr>
         <td><%= trip.user.first_name %></td>
-        <td><img width=60px src="<%= trip.user.image %>"</td>
+        <td><img width=60px src="<%= trip.user.image %>"></td>
         <td><%= trip.title %></td>
         <td><%= trip.location %></td>
-        <td><img src="<%= trip.image %>"></td>
+        <td><img width=200px src="<%= trip.image %>"></td>
         <td><%= trip.description %></td>
         <td>$<%= trip.estimated_cost %></td>
         <td><%= trip.date %></td>
@@ -39,7 +39,12 @@
         <td></td>
 
         <td>
+          <% participant = Participant.find_by(:trip_id => trip.id, :user_id => current_user.id) %>
+          <% if participant.present? %>
+            <a href="/delete_participant/<%= participant.id %>">
+              <% else %>
           <a href="/trips/<%= trip.id %>/join" class="btn btn-success">Join Trip</a>
+          <% end %>
           <a href="/trips/<%= trip.id %>" class="btn btn-primary">Show</a>
           <a href="/trips/<%= trip.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_trip/<%= trip.id %>" class="btn btn-danger" rel="nofollow">Delete</a>

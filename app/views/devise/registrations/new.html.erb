@@ -4,17 +4,17 @@
 <%= devise_error_messages! %>
 
 <div class="field">
-  <%= f.label :first_name %>
+  <%= f.label :first_name %> <br />
   <%= f.text_field :first_name %>
 </div>
 
 <div class="field">
-  <%= f.label :last_name %>
+  <%= f.label :last_name %> <br />
   <%= f.text_field :last_name %>
 </div>
 
 <div class="field">
-  <%= f.label :image %> URL
+  <%= f.label :image %> URL <br />
   <%= f.text_field :image %>
 </div>
 
@@ -42,4 +42,4 @@
 </div>
 <% end %>
 
-<%= render "/trips" %>
+<%= render "devise/shared/links" %>

@@ -22,7 +22,6 @@ class TripsController < ApplicationController
     @trip.date = Chronic.parse(params[:date])
     @trip.location = params[:location]
     @trip.title = params[:title]
-    @trip.trip_id = params[:id]
 
     if @trip.save
       redirect_to "/trips", :notice => "Trip created successfully."
