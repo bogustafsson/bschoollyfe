@@ -59,12 +59,17 @@ class TripsController < ApplicationController
     @participant.user_id = current_user.id
     @participant.trip_id = params[:id]
 
-      if @participant.save
-        redirect_to "/participants", :notice => "Participant created successfully."
-      else
-        render 'new'
-      end
+    if @participant.save
+      redirect_to "/participants", :notice => "Participant created successfully."
+    else
+      render 'new'
     end
+  end
+
+  def confirmed_participants
+    @trip = Trip.find(params[:id])
+    @participant = Participant.find(params[:id])
+  end
 
   def destroy
     @trip = Trip.find(params[:id])
