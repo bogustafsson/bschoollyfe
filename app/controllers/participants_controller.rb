@@ -44,9 +44,11 @@ class ParticipantsController < ApplicationController
 
   def destroy
     @participant = Participant.find(params[:id])
-
-    @participant.destroy
-
-    redirect_to "/participants", :notice => "Participant deleted."
+    if @participant.user_id == current_user.id
+      @participant.destroy
+      redirect_to "/participants", :notice => "Participant deleted."
+    else
+      redirect_to "/participants", :notice => "You can't delete other participants."
+    end
   end
 end

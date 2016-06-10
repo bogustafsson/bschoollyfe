@@ -37,11 +37,7 @@
         <td><%= trip.date %></td>
         <td><%= trip.minimum_number_of_participants %></td>
         <td>
-          <% if @trip.participant.any? %>
-            <%= @trip.participant.count(:user_id).integer %>
-            <% else %>
-            0
-          <% end %>
+        
         </td>
 
         <td>

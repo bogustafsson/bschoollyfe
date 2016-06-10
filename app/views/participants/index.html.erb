@@ -1,7 +1,6 @@
 <div class="page-header">
   <h1>
     Participants
-    <a href="/participants/new" class="btn btn-lg btn-success">New Participant</a>
   </h1>
 </div>
 
@@ -22,7 +21,6 @@
         <td><%= participant.trip.title %></td>
         <td>
           <a href="/participants/<%= participant.id %>" class="btn btn-primary">Show</a>
-          <a href="/participants/<%= participant.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_participant/<%= participant.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
       </tr>
