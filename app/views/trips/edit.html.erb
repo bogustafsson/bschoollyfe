@@ -18,36 +18,45 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @trip.title %>">
+      </div>
+
       <!-- Label and input for user_id -->
       <div class="form-group">
-        <label for="user_id" class="control-label">
+        <label for="user_id" class="control-label" value="<%= @trip.user_id %>">
           User
         </label>
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @trip.user_id %>">
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @trip.user.first_name %>">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label" value="<%= @trip.location %>">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @trip.location %>">
       </div>
 
       <!-- Label and input for image -->
       <div class="form-group">
-        <label for="image" class="control-label">
+        <label for="image" class="control-label" value="<%= @trip.image %>">
           Image
         </label>
 
         <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @trip.image %>">
       </div>
 
-      <!-- Label and input for minimum_number_of_participants -->
-      <div class="form-group">
-        <label for="minimum_number_of_participants" class="control-label">
-          Minimum number of participants
-        </label>
-
-        <input type="text" id="minimum_number_of_participants" name="minimum_number_of_participants" placeholder="Minimum number of participants" class="form-control" value="<%= @trip.minimum_number_of_participants %>">
-      </div>
-
       <!-- Label and input for description -->
       <div class="form-group">
-        <label for="description" class="control-label">
+        <label for="description" class="control-label" value="<%= @trip.description %>">
           Description
         </label>
 
@@ -56,7 +65,7 @@
 
       <!-- Label and input for estimated_cost -->
       <div class="form-group">
-        <label for="estimated_cost" class="control-label">
+        <label for="estimated_cost" class="control-label" value="<%= @trip.estimated_cost %>">
           Estimated cost
         </label>
 
@@ -64,30 +73,23 @@
       </div>
 
       <!-- Label and input for date -->
-      <div class="form-group">
-        <label for="date" class="control-label">
+      <div class='input-group date' id='datetimepicker1'>
+        <label for="date" class="control-label" value="<%= @trip.date %>">
           Date
         </label>
+  <input type='text' class="form-control" name="date" id="date" value="<%= @trip.date %>">
+  <span class="input-group-addon">
+    <span class="glyphicon glyphicon-calendar"></span>
+  </span>
+</div>
 
-        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @trip.date %>">
-      </div>
-
-      <!-- Label and input for location -->
+      <!-- Label and input for minimum_number_of_participants -->
       <div class="form-group">
-        <label for="location" class="control-label">
-          Location
+        <label for="minimum_number_of_participants" class="control-label" value="<%= @trip.minimum_number_of_participants %>">
+          Minimum number of participants
         </label>
 
-        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @trip.location %>">
-      </div>
-
-      <!-- Label and input for title -->
-      <div class="form-group">
-        <label for="title" class="control-label">
-          Title
-        </label>
-
-        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @trip.title %>">
+        <input type="text" id="minimum_number_of_participants" name="minimum_number_of_participants" placeholder="Minimum number of participants" class="form-control" value="<%= @trip.minimum_number_of_participants %>">
       </div>
 
       <button class="btn btn-warning">

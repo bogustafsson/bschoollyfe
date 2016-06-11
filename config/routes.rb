@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # CREATE
   get "/trips/new", :controller => "trips", :action => "new"
   post "/create_trip", :controller => "trips", :action => "create"
-
+#create join
+  get "/trips/:id/join", :controller => "trips", :action => "create_participant"
+    
   # READ
   get "/", :controller => "trips", :action => "index"
   get "/trips", :controller => "trips", :action => "index"

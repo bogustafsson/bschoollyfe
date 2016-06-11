@@ -5,6 +5,7 @@ class ParticipantsController < ApplicationController
 
   def show
     @participant = Participant.find(params[:id])
+    @trip = Trip.new
   end
 
   def new
@@ -32,6 +33,7 @@ class ParticipantsController < ApplicationController
 
     @participant.user_id = params[:user_id]
     @participant.trip_id = params[:trip_id]
+    @participant.title = params[:title]
 
     if @participant.save
       redirect_to "/participants", :notice => "Participant updated successfully."
@@ -42,9 +44,11 @@ class ParticipantsController < ApplicationController
 
   def destroy
     @participant = Participant.find(params[:id])
-
-    @participant.destroy
-
-    redirect_to "/participants", :notice => "Participant deleted."
+    if @participant.user_id == current_user.id
+      @participant.destroy
+      redirect_to "/participants", :notice => "Participant deleted."
+    else
+      redirect_to "/participants", :notice => "You can't delete other participants."
+    end
   end
 end

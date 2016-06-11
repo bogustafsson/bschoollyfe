@@ -1,18 +1,22 @@
 <div class="page-header">
-  <h3>Trip #<%= @trip.id %></h3>
+  <h3><%= @trip.title %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
-      <dt>User</dt>
-      <dd><%= @trip.user_id %></dd>
+      <dt>Host</dt>
+      <dd><%= @trip.user.first_name %></dd>
+      <dt></dt>
+      <dd><img width=60px src="<%= @trip.user.image %>"></dd>
+      <dt>Title</dt>
+      <dd><%= @trip.title %></dd>
+
+      <dt>Location</dt>
+      <dd><%= @trip.location %></dd>
 
       <dt>Image</dt>
-      <dd><%= @trip.image %></dd>
-
-      <dt>Minimum number of participants</dt>
-      <dd><%= @trip.minimum_number_of_participants %></dd>
+      <dd><img width=250px src="<%= @trip.image %>"></dd>
 
       <dt>Description</dt>
       <dd><%= @trip.description %></dd>
@@ -23,11 +27,8 @@
       <dt>Date</dt>
       <dd><%= @trip.date %></dd>
 
-      <dt>Location</dt>
-      <dd><%= @trip.location %></dd>
-
-      <dt>Title</dt>
-      <dd><%= @trip.title %></dd>
+      <dt>Minimum number of participants</dt>
+      <dd><%= @trip.minimum_number_of_participants %></dd>
 
     </dl>
 
