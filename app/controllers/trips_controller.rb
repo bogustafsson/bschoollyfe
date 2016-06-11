@@ -35,6 +35,7 @@ class TripsController < ApplicationController
   end
 
   def update
+
     @trip = Trip.find(params[:id])
 
     @trip.user_id = current_user.id
@@ -46,10 +47,11 @@ class TripsController < ApplicationController
     @trip.location = params[:location]
     @trip.title = params[:title]
 
-    if @trip.save
+    if @trip.user_id == current_user.id
+      @trip.save
       redirect_to "/trips", :notice => "Trip updated successfully."
     else
-      render 'edit'
+      redirect_to "/trips", :notice => "You can't edit trips not created by you."
     end
   end
 
@@ -73,9 +75,11 @@ class TripsController < ApplicationController
 
   def destroy
     @trip = Trip.find(params[:id])
-
-    @trip.destroy
-
-    redirect_to "/trips", :notice => "Trip deleted."
+    if @trip.user_id == current_user.id
+      @trip.destroy
+      redirect_to "/trips", :notice => "Trip updated successfully."
+    else
+      redirect_to "/trips", :notice => "You can't delete trips not created by you."
+    end
   end
 end
