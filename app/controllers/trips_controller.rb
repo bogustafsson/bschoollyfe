@@ -77,7 +77,7 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     if @trip.user_id == current_user.id
       @trip.destroy
-      redirect_to "/trips", :notice => "Trip updated successfully."
+      redirect_to "/trips", :notice => "Trip deleted."
     else
       redirect_to "/trips", :notice => "You can't delete trips not created by you."
     end
